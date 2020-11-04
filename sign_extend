@@ -1,0 +1,17 @@
+module sign_extend(in, out);
+    parameter INPUT_LENGTH = 16;
+    parameter OUTPUT_LENGTH = 32;
+    
+    input [INPUT_LENGTH-1:0] in;
+    output [OUTPUT_LENGTH-1:0] out;
+    
+    wire [OUTPUT_LENGTH-INPUT_LENGTH:0] extra;
+    
+     //rellenando de 1 o 0 dependiendo del MSB
+    //assign a_extra = a[INPUT_LENGTH-1] ? 16'b1 : 16'b0;
+    assign extra = in[INPUT_LENGTH-1] ? {OUTPUT_LENGTH-INPUT_LENGTH{1'b1}} : {OUTPUT_LENGTH-INPUT_LENGTH{1'b0}};
+    
+    //concatenando para armar datos de 16 bits
+    assign in = {extra, in};
+    
+endmodule
