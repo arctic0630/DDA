@@ -1,5 +1,6 @@
 
 
+//Test Bench para la primera versión de la unidad
 module sign_extend_tb();
 
 parameter INPUT_LENGTH = 16;
@@ -21,4 +22,32 @@ initial begin
     #500;
 end
 endmodule
+
+
+//Test bench para la segunda versión de la unidad de extensión de signo.
+
+module sign_extend_tb();
+
+
+
+//input
+reg [15:0] in;
+//output
+wire [31:0] out;
+
+sign_extend uut(
+    .in(in),
+    .out(out)
+);
+
+initial begin
+    in = 16'b1010101010101010;
+    #500;
+    in = 16'b0101010101010101;
+    #500;
+end
+endmodule
+
+
+
     
