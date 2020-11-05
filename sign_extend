@@ -12,6 +12,6 @@ module sign_extend(in, out);
     assign extra = in[INPUT_LENGTH-1] ? {OUTPUT_LENGTH-INPUT_LENGTH{1'b1}} : {OUTPUT_LENGTH-INPUT_LENGTH{1'b0}};
     
     //concatenando para armar datos de 16 bits
-    assign in = {extra, in};
+    assign out = {extra, in};
     
 endmodule
